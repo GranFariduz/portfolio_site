@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-  {% load staticfiles %}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,45 +26,27 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link" href="#">Twitter</a>
-            <a class="nav-item nav-link" href="{% static 'UPSC - Candidate\'s Application Details (Registration-Id_ 11830280277).pdf' %}">Resume</a>
-            <a class="nav-item nav-link" href="{% url 'blogs' %}">Blog</a>
+            <a class="nav-item nav-link" href="#">Resume</a>
+            <a class="nav-item nav-link active" href="{% url 'blogs' %}">Blog</a>
           </div>
         </div>
       </nav>
 
     <main role="main">
 
-      <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading">Hey, I'm MdFxENo </h1>
-          <p class="lead text-muted">A normie turned weeaboo guy, trying to make something happen on his own, just by his own skills</p>
-          <p>
-            <a href="mailto:relampagolanzadel04@gmail.com" class="btn btn-primary my-2">Try emailing me! I won't bite</a>
-          </p>
-          <img height="200" width="300" src="{% static 'image.jpg' %}" />
-        </div>
-      </section>
+      <div class="container">
+        <br />
+        <br />
 
-      <div class="album py-5 bg-light">
-        <div class="container">
-
-          <div class="row">
-
-            {% for job in jobs %}
-
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ job.image.url }}" width="400" height="200"/>
-                <div class="card-body">
-                  <p class="card-text">{{ job.summary }}</p>
-                </div>
-              </div>
-            </div>
-            
-            {% endfor %}
-
+          <div class="pl-10 jumbotron">
+              <h1>{{ blog.title }}</h1>
+              <span class="badge badge-primary">{{ blog.date }}</span><br/>
+              <img style="margin: 10px; box-shadow: 0px 0px 5px 0px; border-radius: 8px" 
+                class='img-responsive' src="{{ blog.image.url }}" height="300" width="400">
+              <p>{{ blog.body_limit }}</p>
           </div>
-        </div>
+          <hr />
+
       </div>
 
     </main>

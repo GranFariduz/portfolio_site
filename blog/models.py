@@ -5,3 +5,10 @@ class Blog(models.Model):
     date = models.DateTimeField()
     body = models.TextField()
     image = models.ImageField(upload_to='images/')
+
+    def __str__(self):
+        return self.title
+
+    def body_limit(self):
+        return self.body[:200]
+
