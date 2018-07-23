@@ -26,7 +26,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link" href="#">Twitter</a>
+            <a class="nav-item nav-link" href="https://facebook.com/fariduzzama" target="_blank">Facebook</a>
             <a class="nav-item nav-link" href="{% static 'UPSC - Candidate\'s Application Details (Registration-Id_ 11830280277).pdf' %}">Resume</a>
             <a class="nav-item nav-link active" href="{% url 'blogs' %}">Blog</a>
           </div>
@@ -37,7 +37,7 @@
 
       <div class="container">
 
-        <h2 style="color: rgb(92, 92, 92); font-family: 'Montserrat'" class="text-center pt-5">This here, is my blog.</h2>
+        <h2 style="color: rgb(92, 92, 92); font-family: 'Montserrat'" class="text-center pt-5">This here, is my blog</h2>
         <br />
         <br />
         <h3>Latest Posts</h3>
@@ -46,11 +46,11 @@
         {% for blog in blogs %}
 
           <div class="pl-10 jumbotron">
-              <a href="{% url 'detail' blog.id %}">{{ blog.title }}</a>
+              <h2><a href="{% url 'detail' blog.id %}">{{ blog.title }}</a></h2>
               <span class="badge badge-primary">{{ blog.date }}</span><br/>
               <img style="margin: 10px; box-shadow: 0px 0px 5px 0px; border-radius: 8px" 
                 class='img-responsive' src="{{ blog.image.url }}" height="300" width="400">
-              <p>{{ blog.body_limit }}</p>
+              <p>{{ blog.body_limit }} <a href="{% url 'detail' blog.id %}"><small>Read more</small></a> </p>
           </div>
           <hr />
 
